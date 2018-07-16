@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>js插件</title>
+    <script src="static/js/jquery.js"></script>   
+    <script src="lib/sea.js"></script>   
+    <script src="lib/sea-css.js"></script>    
+    <script>
+            //var version = '1.0';
+            seajs.config({
+                base : 'file:///D:/test/sea/static/',  //通用的绝对路径
+                alias: {
+                    'jqueryPage': 'file:///D:/test/sea/lib/jquery.pagination'  //特殊的绝对路径
+                },
+                //文件映射
+                map: [
+                    //可配置版本号
+                    ['.css', '.css?v=' + new Date().getDate()],
+                    ['.js', '.js?v=' + new Date().getDate()]
+                ]
+            });
+            seajs.use(['js/tab','jqueryPage','css/index.css'],function(tab,pagination){
+                $(".tab_show").tab();    
+            });
+
+    </script>
+</head>
+<body>
+
+    <div class="tab_show" data-config="{type:'mouseover','auto':'2000'}">
+        <ul>
+            <li class=" active">图一</li>
+            <li>图二</li>
+            <li>图三</li>
+        </ul>
+        <div class="tab_warp">
+            <div class="tab_item active">
+                <img src="static/img/img_fjords_wide.jpg">
+            </div>
+            <div class="tab_item">
+                  <img src="static/img/img_mountains_wide.jpg">
+            </div>
+            <div class="tab_item">
+                  <img src="static/img/img_nature_wide.jpg">
+            </div>
+        </div>
+    </div>
+    <div class="tab_show" data-config="{type:'click','auto':false, 'effect':'none'}">
+        <ul>
+            <li class=" active">图一</li>
+            <li>图二</li>
+            <li>图三</li>
+        </ul>
+        <div class="tab_warp">
+            <div class="tab_item active">
+                <img src="static/img/img_fjords_wide.jpg">
+            </div>
+            <div class="tab_item">
+                  <img src="static/img/img_mountains_wide.jpg">
+            </div>
+            <div class="tab_item">
+                  <img src="static/img/img_nature_wide.jpg">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
